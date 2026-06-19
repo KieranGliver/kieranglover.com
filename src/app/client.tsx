@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { About } from '@/components/about';
 import { Contact } from '@/components/contact';
 import { Hero } from '@/components/hero';
+import { Projects } from '@/components/projects';
 import { Button } from '@/components/ui/button';
 
 type Phase = 'intro' | 'flashing' | 'main';
@@ -81,6 +82,7 @@ export function App() {
 			>
 				<div className="flex flex-col gap-12 mb-12">
 					<Hero />
+					<Projects />
 					<About />
 					<Contact />
 				</div>
