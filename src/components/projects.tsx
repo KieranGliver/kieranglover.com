@@ -99,7 +99,7 @@ const projects: Project[] = [
 		description: 'This site. Built with Next.js, React, and Tailwind.',
 		href: 'https://github.com/KieranGliver/kieranglover.com',
 		image: '/this-website.png',
-		badges: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
+		badges: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'AWS'],
 	},
 	{
 		title: 'First to Bleed',
