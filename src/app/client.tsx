@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { About } from '@/components/about';
 import { Hero } from '@/components/hero';
 import { Button } from '@/components/ui/button';
 
@@ -78,6 +79,7 @@ export function App() {
 				style={{ opacity: phase === 'main' && visible ? 1 : 0 }}
 			>
 				<Hero />
+				<About />
 			</div>
 		</div>
 	);
