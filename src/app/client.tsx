@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { Hero } from '@/components/hero';
 import { Button } from '@/components/ui/button';
 
 type Phase = 'intro' | 'flashing' | 'main';
@@ -74,10 +75,10 @@ export function App() {
 
 			{phase === 'main' && (
 				<div
-					className="flex h-full items-center justify-center text-white transition-opacity duration-500"
+					className="h-full overflow-y-auto transition-opacity duration-500"
 					style={{ opacity: visible ? 1 : 0 }}
 				>
-					<p>Portfolio coming soon.</p>
+					<Hero />
 				</div>
 			)}
 		</div>
