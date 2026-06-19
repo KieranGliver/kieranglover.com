@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { About } from '@/components/about';
+import { Contact } from '@/components/contact';
 import { Hero } from '@/components/hero';
 import { Button } from '@/components/ui/button';
 
@@ -78,8 +79,11 @@ export function App() {
 				className={`h-full overflow-y-auto transition-opacity duration-500 ${phase !== 'main' ? 'pointer-events-none' : ''}`}
 				style={{ opacity: phase === 'main' && visible ? 1 : 0 }}
 			>
-				<Hero />
-				<About />
+				<div className="flex flex-col gap-12 mb-12">
+					<Hero />
+					<About />
+					<Contact />
+				</div>
 			</div>
 		</div>
 	);

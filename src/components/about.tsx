@@ -2,7 +2,7 @@ import { Card, CardContent, CardTitle } from '@/components/ui/card';
 
 export function About() {
 	return (
-		<section className="px-4 py-12 md:px-8">
+		<section className="px-4 md:px-8">
 			<Card className="mx-auto max-w-2xl">
 				<CardContent className="pt-6">
 					<CardTitle className="text-2xl font-bold mb-6">About Me</CardTitle>
@@ -34,7 +34,7 @@ export function About() {
 							Building it end-to-end meant getting hands-on with the full
 							lifecycle: designing the database schema and system architecture
 							from scratch, setting up CI/CD pipelines with GitHub Actions, and
-							deploying to production.
+							deploying production level code.
 						</p>
 						<p>
 							I'm actively looking for entry-level developer roles. Feel free to
