@@ -13,7 +13,17 @@ type Phase = 'intro' | 'flashing' | 'main';
 export function App() {
 	const [phase, setPhase] = useState<Phase>('intro');
 	const [visible, setVisible] = useState(false);
-	const audioRef = useRef<HTMLAudioElement | null>(null);
+	const audioBufferRef = useRef<AudioBuffer | null>(null);
+
+	useEffect(() => {
+		fetch('/Heartbeat.wav')
+			.then((r) => r.arrayBuffer())
+			.then((buf) => new AudioContext().decodeAudioData(buf))
+			.then((decoded) => {
+				audioBufferRef.current = decoded;
+			})
+			.catch(() => {});
+	}, []);
 
 	useEffect(() => {
 		if (phase === 'main') {
@@ -23,15 +33,18 @@ export function App() {
 	}, [phase]);
 
 	function handleEnter() {
-		audioRef.current?.play().catch(() => {});
+		if (audioBufferRef.current) {
+			const ctx = new AudioContext();
+			const source = ctx.createBufferSource();
+			source.buffer = audioBufferRef.current;
+			source.connect(ctx.destination);
+			source.start();
+		}
 		setPhase('flashing');
 	}
 
 	return (
 		<div className="fixed inset-0 bg-black">
-			{/* biome-ignore lint/a11y/useMediaCaption: decorative sound effect, no dialogue content */}
-			<audio ref={audioRef} src="/Heartbeat.wav" preload="auto" />
-
 			{phase === 'intro' && (
 				<div className="flex h-full items-center justify-center">
 					<Button
