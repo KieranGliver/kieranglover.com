@@ -25,9 +25,9 @@ echo ">>> Installing Node.js 22"
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt install -y nodejs
 
-echo ">>> Installing pnpm, PM2, git, nginx"
+echo ">>> Installing pnpm, PM2, git, nginx, certbot"
 sudo npm install -g pnpm pm2
-sudo apt install -y git nginx
+sudo apt install -y git nginx certbot python3-certbot-nginx
 
 echo ">>> Cloning repo"
 if [ -d "$APP_DIR" ]; then
