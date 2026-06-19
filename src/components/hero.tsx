@@ -21,27 +21,32 @@ export function Hero() {
 	return (
 		<section>
 			<Card className="relative p-0">
-				<Image
-					src="/toronto-skyline.jpg"
-					height={3001}
-					width={6759}
-					className="w-full"
-					alt="Toronto skyline at night"
-				/>
-				<Card className="absolute bottom-8 left-1/2 -translate-x-1/2 w-2/3 overflow-visible">
-					<div className="absolute -top-12 left-6 ">
+				<div className="relative min-h-[340px] md:min-h-0 md:aspect-[6759/3001]">
+					<Image
+						src="/toronto-skyline.jpg"
+						fill
+						className="object-cover object-center"
+						sizes="100vw"
+						alt="Toronto skyline at night"
+					/>
+				</div>
+				<Card className="absolute bottom-4 md:bottom-12 left-1/2 -translate-x-1/2 w-11/12 md:w-2/3 overflow-visible">
+					<div className="absolute -top-10 left-4 md:-top-16 md:left-6">
 						<Avatar />
 					</div>
-					<CardContent>
-						<div className="pl-28 mb-4 mt-2">
-							<CardTitle>Kieran Glover</CardTitle>
+					<CardContent className="pt-4 md:pt-6">
+						<div className="pl-28 mb-2 md:pl-36">
+							<CardTitle className="text-xl md:text-2xl font-bold">
+								Kieran Glover
+							</CardTitle>
 						</div>
 						<CardDescription className="mb-4">
-							This is a one liner
+							Software developer based in Toronto. I build games, apps, and
+							tools.
 						</CardDescription>
-						<div className="flex justify-self-center w-2/3 justify-between ">
+						<div className="grid grid-cols-3 gap-2">
 							{socialLinks.map((link) => (
-								<Button key={link.label} size="lg" className="w-1/4" asChild>
+								<Button key={link.label} size="lg" asChild>
 									<a href={link.href} target="_blank" rel="noopener noreferrer">
 										{link.label}
 									</a>

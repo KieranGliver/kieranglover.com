@@ -73,14 +73,12 @@ export function App() {
 				</>
 			)}
 
-			{phase === 'main' && (
-				<div
-					className="h-full overflow-y-auto transition-opacity duration-500"
-					style={{ opacity: visible ? 1 : 0 }}
-				>
-					<Hero />
-				</div>
-			)}
+			<div
+				className={`h-full overflow-y-auto transition-opacity duration-500 ${phase !== 'main' ? 'pointer-events-none' : ''}`}
+				style={{ opacity: phase === 'main' && visible ? 1 : 0 }}
+			>
+				<Hero />
+			</div>
 		</div>
 	);
 }
